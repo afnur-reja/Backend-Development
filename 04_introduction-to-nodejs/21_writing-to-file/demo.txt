@@ -1,0 +1,2 @@
+hello worldI am learning how to write in a file using node js
+I am learning how to write in a file using node js

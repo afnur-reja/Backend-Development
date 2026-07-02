@@ -1,0 +1,15 @@
+{
+  "name": "word-counter-reja",
+  "type": "module",
+  "bin": {
+    "countWord": "./app.js"
+  },
+  "version": "1.0.1",
+  "description": "A basic word counter which count word from a given file ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
