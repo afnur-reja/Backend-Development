@@ -3,7 +3,7 @@ import net from "node:net";
 process.stdin.on("data", (input) => {
    const inputStr = input.toString().split(" ")
    const [clientIndex] = inputStr
-   if(typeof parseInt(clientIndex) === "number") {
+   if(!Number.isNaN(Number(clientIndex))) {
       clientsList[parseInt(clientIndex)].write(inputStr.slice(1).join(" "))
    } else {
       clientsList.forEach((clientSocket) => {
@@ -15,7 +15,6 @@ process.stdin.on("data", (input) => {
 const clientsList = []
 
 const server = net.createServer((socket) => {
-  console.log(socket)
   console.log("Client Connected : ", socket.remoteAddress);
   clientsList.push(socket)
 
