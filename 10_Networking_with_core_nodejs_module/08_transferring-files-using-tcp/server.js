@@ -13,14 +13,19 @@ import net from "node:net";
 //    }
 // })
 
-const clientsList = []
+const clientsList = [];
 
 const server = net.createServer((socket) => {
-  console.log("Client Connected : ", socket.remoteAddress);``
-  clientsList.push(socket)
+  console.log("Client Connected : ", socket.remoteAddress);
+  ``;
+  clientsList.push(socket);
 
-  const writeStream = createWriteStream("song.mp4");
-  socket.pipe(writeStream);
+  // const writeStream = createWriteStream("song.mp4");
+  // socket.pipe(writeStream);
+
+  clientsList.forEach((clientSocket) => {
+    if (clientSocket !== socket) socket.pipe(clientSocket);
+  });
 
   // const readStream = createReadStream("song.mp4");
   // readStream.pipe(socket);
@@ -48,7 +53,5 @@ const server = net.createServer((socket) => {
 server.listen(4000, "0.0.0.0", () => {
   console.log("Server started on port 4000");
 });
-
-
 
 // Task : upload a file by a client than sent it to each client connected to the server except that client.

@@ -15,9 +15,10 @@ process.stdin.on("data", (input) => {
 const socket = net.createConnection({ host: "10.61.154.69", port: 4000 });
 
 // const writeStream = createWriteStream("C:\\Users\\afnur\\OneDrive\\Desktop\\song.mp4")
-// socket.pipe(writeStream);
+const writeStream = createWriteStream("csong.mp4")
+socket.pipe(writeStream);
 
-// socket.on("data", (chunk) => {
+// socket.on("data", (chunk) => {P
 //     console.log(chunk.toString());
 // })
 
